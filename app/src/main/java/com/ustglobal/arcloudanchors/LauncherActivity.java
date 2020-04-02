@@ -40,7 +40,7 @@ public class LauncherActivity extends AppCompatActivity implements View.OnClickL
         ImageButton apartment28Btn = findViewById(R.id.Apartment28_btn);
         ImageButton apartment30Btn = findViewById(R.id.Apartment30_btn);
         apartment28Btn.setOnClickListener(this);
-        apartment28Btn.setOnClickListener(this);
+        apartment30Btn.setOnClickListener(this);
     }
 
     @Override
