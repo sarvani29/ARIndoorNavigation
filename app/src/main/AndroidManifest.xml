@@ -32,9 +32,9 @@
         <meta-data
             android:name="com.google.ar.core"
             android:value="required" />
-<!--        <meta-data-->
-<!--            android:name="com.google.android.ar.API_KEY"-->
-<!--            android:value="@string/API_KEY" />-->
+        <meta-data
+            android:name="com.google.android.ar.API_KEY"
+            android:value="@string/API_KEY" />
     </application>
 
 </manifest>

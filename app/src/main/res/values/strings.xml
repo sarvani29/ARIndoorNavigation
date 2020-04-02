@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">AR Navigation</string>
     <string name="title_activity_laucher_activiy">LaucherActiviy</string>
+    <string name="API_KEY">AIzaSyDdTm4LbSeAtcD0AsIO5uWK_RYEaI_Gdzw</string> //api key generated from google cloud platform, ARCore cloud anchor API.
 </resources>

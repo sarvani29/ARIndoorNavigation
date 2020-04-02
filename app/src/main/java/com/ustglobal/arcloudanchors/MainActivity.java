@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private CustomArFragment arFragment;
     private ArrayList anchorList;
     public Spinner modelOptionsSpinner;
-    private static final String[] paths = {"Straight Arrow", "Right Arrow", "Left Arrow"};
+    private static final String[] paths = {"Go Straight", "Turn Right", "Turn Left"};
     private String FROM, MODE;
 
     private enum AppAnchorState {
@@ -38,10 +38,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Anchor anchor;
     private AnchorNode anchorNode;
     private AppAnchorState appAnchorState = AppAnchorState.NONE;
-    private String ELECTRONICS = "electronics_DB";
-    private String TOYS = "toys_DB";
-    private String TV_APPLIANCES = "tv_DB";
-    private String CLOTHING = "clothing_DB";
+    private String APARTMENT28 = "apartment28_DB";
+    private String APARTMENT30 = "apartment30_DB";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,14 +95,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 String anchorId = anchor.getCloudAnchorId();
                 anchorList.add(anchorId);
 
-                if (FROM.equalsIgnoreCase(LauncherActivity.ELECTRONICS)) {
-                    tinydb.putListString(ELECTRONICS, anchorList);
-                } else if (FROM.equalsIgnoreCase(LauncherActivity.TOYS)) {
-                    tinydb.putListString(TOYS, anchorList);
-                } else if (FROM.equalsIgnoreCase(LauncherActivity.TV_APPLIANCES)) {
-                    tinydb.putListString(TV_APPLIANCES, anchorList);
-                } else if (FROM.equalsIgnoreCase(LauncherActivity.CLOTHING)) {
-                    tinydb.putListString(CLOTHING, anchorList);
+                if (FROM.equalsIgnoreCase(LauncherActivity.APARTMENT28)) {
+                    tinydb.putListString(APARTMENT28, anchorList);
+                } else if (FROM.equalsIgnoreCase(LauncherActivity.APARTMENT30)) {
+                    tinydb.putListString(APARTMENT30, anchorList);
                 }
 
                 showToast("Anchor hosted successfully. Anchor Id: " + anchorId);
@@ -115,14 +109,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         resolve.setOnClickListener(view -> {
             ArrayList<String> stringArrayList = new ArrayList<>();
-            if (FROM.equalsIgnoreCase(LauncherActivity.ELECTRONICS)) {
-                stringArrayList = tinydb.getListString(ELECTRONICS);
-            } else if (FROM.equalsIgnoreCase(LauncherActivity.TOYS)) {
-                stringArrayList = tinydb.getListString(TOYS);
-            } else if (FROM.equalsIgnoreCase(LauncherActivity.TV_APPLIANCES)) {
-                stringArrayList = tinydb.getListString(TV_APPLIANCES);
-            } else if (FROM.equalsIgnoreCase(LauncherActivity.CLOTHING)) {
-                stringArrayList = tinydb.getListString(CLOTHING);
+            if (FROM.equalsIgnoreCase(LauncherActivity.APARTMENT28)) {
+                stringArrayList = tinydb.getListString(APARTMENT28);
+            } else if (FROM.equalsIgnoreCase(LauncherActivity.APARTMENT30)) {
+                stringArrayList = tinydb.getListString(APARTMENT30);
             }
 
             for (int i = 0; i < stringArrayList.size(); i++) {
@@ -169,13 +159,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         So we create a TransformableNode with AnchorNode as the parent*/
         TransformableNode transformableNode = new TransformableNode(arFragment.getTransformationSystem());
 
-        if (modelOptionsSpinner.getSelectedItem().toString().equals("Straight Arrow")) {
+        if (modelOptionsSpinner.getSelectedItem().toString().equals(" Go Straight")) {
             transformableNode.setLocalRotation(Quaternion.axisAngle(new Vector3(0, 1f, 0), 225));
         }
-        if (modelOptionsSpinner.getSelectedItem().toString().equals("Right Arrow")) {
+        if (modelOptionsSpinner.getSelectedItem().toString().equals("Go Right")) {
             transformableNode.setLocalRotation(Quaternion.axisAngle(new Vector3(0, 1f, 0), 135));
         }
-        if (modelOptionsSpinner.getSelectedItem().toString().equals("Left Arrow")) {
+        if (modelOptionsSpinner.getSelectedItem().toString().equals("Go Left")) {
             transformableNode.setLocalRotation(Quaternion.axisAngle(new Vector3(0, 1f, 0), 315));
         }
         transformableNode.setParent(anchorNode);
