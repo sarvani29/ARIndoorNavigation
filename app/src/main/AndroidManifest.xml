@@ -21,7 +21,7 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_laucher_activiy"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".LauncherActivity">
+        <activity android:name=".Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

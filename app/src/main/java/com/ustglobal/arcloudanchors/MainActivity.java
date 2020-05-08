@@ -23,10 +23,10 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private CustomArFragment arFragment;
+    private ARFragment arFragment;
     private ArrayList anchorList;
     public Spinner modelOptionsSpinner;
-    private static final String[] paths = {"Go Straight", "Turn Right", "Turn Left"};
+    private static final String[] paths = {"Straight Arrow", "Right Arrow", "Left Arrow"};
     private String FROM, MODE;
 
     private enum AppAnchorState {
@@ -38,8 +38,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Anchor anchor;
     private AnchorNode anchorNode;
     private AppAnchorState appAnchorState = AppAnchorState.NONE;
-    private String APARTMENT28 = "apartment28_DB";
+    private String APARTMENT18 = "apartment18_DB";
+    private String PACKENHAM_HOUSE = "packenhamHouse_DB";
     private String APARTMENT30 = "apartment30_DB";
+    private String FIREEXIT = "fireexit_DB";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +51,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             if (extras == null) {
                 FROM = null;
             } else {
-                FROM = extras.getString(LauncherActivity.FROM);
-                MODE = extras.getString(LauncherActivity.MODE);
+                FROM = extras.getString(Home.FROM);
+                MODE = extras.getString(Home.MODE);
             }
         }
 
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         modelOptionsSpinner.setAdapter(adapter);
         modelOptionsSpinner.setOnItemSelectedListener(this);
 
-        arFragment = (CustomArFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
+        arFragment = (ARFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
         arFragment.setOnTapArPlaneListener((hitResult, plane, motionEvent) -> {
             //Active only in Admin Mode
             if(MODE.equalsIgnoreCase("admin")) {
@@ -95,10 +97,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 String anchorId = anchor.getCloudAnchorId();
                 anchorList.add(anchorId);
 
-                if (FROM.equalsIgnoreCase(LauncherActivity.APARTMENT28)) {
-                    tinydb.putListString(APARTMENT28, anchorList);
-                } else if (FROM.equalsIgnoreCase(LauncherActivity.APARTMENT30)) {
+                if (FROM.equalsIgnoreCase(Home.APARTMENT18)) {
+                    tinydb.putListString(APARTMENT18, anchorList);
+                } else if (FROM.equalsIgnoreCase(Home.PACKENHAM_HOUSE)) {
+                    tinydb.putListString(PACKENHAM_HOUSE, anchorList);
+                } else if (FROM.equalsIgnoreCase(Home.APARTMENT30)) {
                     tinydb.putListString(APARTMENT30, anchorList);
+                } else if (FROM.equalsIgnoreCase(Home.FIREEXIT)) {
+                    tinydb.putListString(FIREEXIT, anchorList);
                 }
 
                 showToast("Anchor hosted successfully. Anchor Id: " + anchorId);
@@ -109,10 +115,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         resolve.setOnClickListener(view -> {
             ArrayList<String> stringArrayList = new ArrayList<>();
-            if (FROM.equalsIgnoreCase(LauncherActivity.APARTMENT28)) {
-                stringArrayList = tinydb.getListString(APARTMENT28);
-            } else if (FROM.equalsIgnoreCase(LauncherActivity.APARTMENT30)) {
+            if (FROM.equalsIgnoreCase(Home.APARTMENT18)) {
+                stringArrayList = tinydb.getListString(APARTMENT18);
+            } else if (FROM.equalsIgnoreCase(Home.PACKENHAM_HOUSE)) {
+                stringArrayList = tinydb.getListString(PACKENHAM_HOUSE);
+            } else if (FROM.equalsIgnoreCase(Home.APARTMENT30)) {
                 stringArrayList = tinydb.getListString(APARTMENT30);
+            } else if (FROM.equalsIgnoreCase(Home.FIREEXIT)) {
+                stringArrayList = tinydb.getListString(FIREEXIT);
             }
 
             for (int i = 0; i < stringArrayList.size(); i++) {
@@ -159,13 +169,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         So we create a TransformableNode with AnchorNode as the parent*/
         TransformableNode transformableNode = new TransformableNode(arFragment.getTransformationSystem());
 
-        if (modelOptionsSpinner.getSelectedItem().toString().equals(" Go Straight")) {
+        if (modelOptionsSpinner.getSelectedItem().toString().equals("Straight Arrow")) {
             transformableNode.setLocalRotation(Quaternion.axisAngle(new Vector3(0, 1f, 0), 225));
         }
-        if (modelOptionsSpinner.getSelectedItem().toString().equals("Go Right")) {
+        if (modelOptionsSpinner.getSelectedItem().toString().equals("Right Arrow")) {
             transformableNode.setLocalRotation(Quaternion.axisAngle(new Vector3(0, 1f, 0), 135));
         }
-        if (modelOptionsSpinner.getSelectedItem().toString().equals("Go Left")) {
+        if (modelOptionsSpinner.getSelectedItem().toString().equals("Left Arrow")) {
             transformableNode.setLocalRotation(Quaternion.axisAngle(new Vector3(0, 1f, 0), 315));
         }
         transformableNode.setParent(anchorNode);

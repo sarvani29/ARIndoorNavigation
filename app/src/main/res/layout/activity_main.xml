@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.ustglobal.arcloudanchors.CustomArFragment"
+        android:name="com.ustglobal.arcloudanchors.ARFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
