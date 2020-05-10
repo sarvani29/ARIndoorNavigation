@@ -15,13 +15,11 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pop
     public static final String FROM = "from";
     public static final String MODE = "mode";
     public String userMode = "user";
-    public static final String APARTMENT18 = "Apartment18";
-    public static final String PACKENHAM_HOUSE = "Packenham_house";
-    public static final String APARTMENT30 = "Apartment30";
-    public static final String FIREEXIT = "fireexit";
 
-
-
+    public static final String APARTMENT18 = "apartment18";
+    public static final String APARTMENT30 = "apartment30";
+    public static final String PACKENHAMHOUSE = "packenham_house";
+    public static final String FIREEXIT = "fire_exit";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,14 +40,15 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pop
             popup.show();
         });
 
-        ImageButton apartment18Btn = findViewById(R.id.apartment18);
-        ImageButton packenham_houseBtn = findViewById(R.id.packenham_house);
-        ImageButton apartment30Btn = findViewById(R.id.apartment30);
-        ImageButton fireexitBtn = findViewById(R.id.fireexit);
+        ImageButton apartment18Btn = findViewById(R.id.apartment18Btn);
+        ImageButton apartment30Btn = findViewById(R.id.apartment30Btn);
+        ImageButton packenhamHouseBtn = findViewById(R.id.packenhamhouseBtn);
+        ImageButton fireExitBtn = findViewById(R.id.fireexitBtn);
+        // Initilizing on click listeners for all buttons
         apartment18Btn.setOnClickListener(this);
-        packenham_houseBtn.setOnClickListener(this);
         apartment30Btn.setOnClickListener(this);
-        fireexitBtn.setOnClickListener(this);
+        packenhamHouseBtn.setOnClickListener(this);
+        fireExitBtn.setOnClickListener(this);
     }
 
     @Override
@@ -69,16 +68,16 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pop
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.apartment18:
+            case R.id.apartment18Btn:
                 goToCameraActivity(APARTMENT18);
                 break;
-            case R.id.packenham_house:
-                goToCameraActivity(PACKENHAM_HOUSE);
-                break;
-            case R.id.apartment30:
+            case R.id.apartment30Btn:
                 goToCameraActivity(APARTMENT30);
                 break;
-            case R.id.fireexit:
+            case R.id.packenhamhouseBtn:
+                goToCameraActivity(PACKENHAMHOUSE);
+                break;
+            case R.id.fireexitBtn:
                 goToCameraActivity(FIREEXIT);
                 break;
 

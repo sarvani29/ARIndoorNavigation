@@ -5,7 +5,7 @@
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_list"
+    android:background="@drawable/home_background"
     tools:context=".Home">
 
     <Toolbar
@@ -63,14 +63,11 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
-            android:text="Navigate in AR"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:text="Navigate in AR" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -87,7 +84,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/apartment18"
+                    android:id="@+id/apartment18Btn"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
@@ -109,7 +106,6 @@
 
             </LinearLayout>
 
-
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -117,7 +113,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/apartment30"
+                    android:id="@+id/apartment30Btn"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
@@ -146,7 +142,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/packenham_house"
+                    android:id="@+id/packenhamhouseBtn"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
@@ -154,7 +150,7 @@
                     android:fitsSystemWindows="true"
                     android:padding="10dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/toys_icon" />
+                    android:src="@drawable/packenhamhouse" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -168,7 +164,6 @@
 
             </LinearLayout>
 
-
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -176,7 +171,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/fireexit"
+                    android:id="@+id/fireexitBtn"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
@@ -184,7 +179,7 @@
                     android:fitsSystemWindows="true"
                     android:padding="10dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/clothing_icon" />
+                    android:src="@drawable/fire_exit" />
 
                 <TextView
                     android:layout_width="wrap_content"
