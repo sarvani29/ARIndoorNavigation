@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
         anchorList = new ArrayList();
         // Context of the entire application is passed on to TinyDB
-        DB tinydb = new DB(getApplicationContext());
+        Storage storage = new Storage(getApplicationContext());
         Button resolve = findViewById(R.id.resolve);
 
         arFragment = (CloudAnchorFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
@@ -94,13 +94,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 anchorList.add(anchorId);
 
                 if (FROM.equalsIgnoreCase(Home.APARTMENT18)) {
-                    tinydb.addListString(APARTMENT18, anchorList);
+                    storage.addListString(APARTMENT18, anchorList);
                 } else if (FROM.equalsIgnoreCase(Home.APARTMENT30)) {
-                    tinydb.addListString(APARTMENT30, anchorList);
+                    storage.addListString(APARTMENT30, anchorList);
                 } else if (FROM.equalsIgnoreCase(Home.PACKENHAMHOUSE)) {
-                    tinydb.addListString(PACKENHAMHOUSE, anchorList);
+                    storage.addListString(PACKENHAMHOUSE, anchorList);
                 } else if (FROM.equalsIgnoreCase(Home.FIREEXIT)) {
-                    tinydb.addListString(FIREEXIT, anchorList);
+                    storage.addListString(FIREEXIT, anchorList);
                 }
 
                 showToast("Anchor hosted successfully. Anchor Id: " + anchorId);
@@ -112,13 +112,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         resolve.setOnClickListener(view -> {
             ArrayList<String> stringArrayList = new ArrayList<>();
             if (FROM.equalsIgnoreCase(Home.APARTMENT18)) {
-                stringArrayList = tinydb.getListString(APARTMENT18);
+                stringArrayList = storage.getListString(APARTMENT18);
             } else if (FROM.equalsIgnoreCase(Home.APARTMENT30)) {
-                stringArrayList = tinydb.getListString(APARTMENT30);
+                stringArrayList = storage.getListString(APARTMENT30);
             } else if (FROM.equalsIgnoreCase(Home.PACKENHAMHOUSE)) {
-                stringArrayList = tinydb.getListString(PACKENHAMHOUSE);
+                stringArrayList = storage.getListString(PACKENHAMHOUSE);
             } else if (FROM.equalsIgnoreCase(Home.FIREEXIT)) {
-                stringArrayList = tinydb.getListString(FIREEXIT);
+                stringArrayList = storage.getListString(FIREEXIT);
             }
 
             for (int i = 0; i < stringArrayList.size(); i++) {

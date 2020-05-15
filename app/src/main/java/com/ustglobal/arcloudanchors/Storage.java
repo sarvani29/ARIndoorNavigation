@@ -8,11 +8,7 @@ import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/*
- *  The "‚‗‚" character is not a comma, it is the SINGLE LOW-9 QUOTATION MARK unicode 201A
- *  and unicode 2017 that are used for separating the items in a list.
- */
-public class DB {
+public class Storage {
 
     /**
      * Shared Preferences allows us to save and retrieve data in the form of key,value pair.
@@ -20,7 +16,7 @@ public class DB {
 
     private SharedPreferences preferences;
 
-    public DB(Context appContext) {
+    public Storage(Context appContext) {
         preferences = PreferenceManager.getDefaultSharedPreferences(appContext);
     }
 
