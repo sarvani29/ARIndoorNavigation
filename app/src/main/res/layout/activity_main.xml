@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="arnavigation.MainActivity">
 
     <Button
         android:id="@+id/resolve"
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.ustglobal.arcloudanchors.CloudAnchorFragment"
+        android:name="arnavigation.CloudAnchorFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

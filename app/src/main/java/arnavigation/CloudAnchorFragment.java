@@ -1,4 +1,4 @@
-package com.ustglobal.arcloudanchors;
+package arnavigation;
 
 import com.google.ar.core.Config;
 import com.google.ar.core.Session;
@@ -10,6 +10,7 @@ public class CloudAnchorFragment extends ArFragment {
     protected Config getSessionConfiguration(Session session) {
 
         Config config = new Config(session);
+//        getPlaneDiscoveryController().setInstructionView(null);
         config.setCloudAnchorMode(Config.CloudAnchorMode.ENABLED);
         config.setFocusMode(Config.FocusMode.AUTO);
         session.configure(config);

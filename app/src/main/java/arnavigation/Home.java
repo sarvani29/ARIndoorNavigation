@@ -1,4 +1,4 @@
-package com.ustglobal.arcloudanchors;
+package arnavigation;
 
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
+
+import com.ustglobal.arcloudanchors.R;
 
 public class Home extends AppCompatActivity implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
 
